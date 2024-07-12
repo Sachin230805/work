@@ -24,7 +24,12 @@ class User(BaseModel):
     company_name: str = None
     id:int
 
-
+try:
+     conn=psycopg2.connect(host='localhost',database='fastapi',user='postgres',password='Sachin@123',cursor_factory=RealDictCursor)
+     cursor=conn.cursor()
+     print("connection was successful")
+except Exception as error:
+     print("connection was unsuccessful")
 
 users=[{"name":"SACHIN","age":18,"company_name":"SEEDFLEX","id":10},{"name":"WADZEE","age":23,"company_name":"SEEDFLEX","id":12},
       {"name":"ADITYA","age":36,"company_name":"SEEDFLEX","id":13},{"name":"ADAM","age":28,"company_name":"SEEDFLEX","id":14},
